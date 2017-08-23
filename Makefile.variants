@@ -1,0 +1,183 @@
+# Machine generated part of Makefile supporting defined LIST_OF_VARIANTS.
+#
+#---------------------------------------------------------------------------------------------------------------------------
+# For every parameter, which is defined, indicate so, and if not, then indicate help for it.
+# If BOOT is defined, indicate so
+ifneq ($(BOOT),)
+BOOT_APPENDIX:=_BOOT
+else
+BOOT_HELP:=^ "BOOT=BOOTLOADER_ENABLED"
+endif
+#
+# If EP_SUPPORT is defined, indicate so
+ifneq ($(EP_SUPPORT),)
+EP_SUPPORT_APPENDIX:=_EP_SUPPORT
+else
+EP_SUPPORT_HELP:=^ "EP_SUPPORT=NO"
+endif
+#
+# If LIBRARY is defined, indicate so
+ifneq ($(LIBRARY),)
+LIBRARY_APPENDIX:=_LIBRARY
+else
+LIBRARY_HELP:=^ "LIBRARY=controller_static"
+endif
+#
+# If FREQUENCY is defined, indicate so
+ifneq ($(FREQUENCY),)
+FREQUENCY_APPENDIX:=_FREQUENCY
+else
+FREQUENCY_HELP:=^ "FREQUENCY=EU"
+endif
+#
+# If CODE_MEMORY_MODE is defined, indicate so
+ifneq ($(CODE_MEMORY_MODE),)
+CODE_MEMORY_MODE_APPENDIX:=_CODE_MEMORY_MODE
+else
+CODE_MEMORY_MODE_HELP:=^ "CODE_MEMORY_MODE=banking"
+endif
+#
+# If SENSOR_TYPE is defined, indicate so
+ifneq ($(SENSOR_TYPE),)
+SENSOR_TYPE_APPENDIX:=_SENSOR_TYPE
+else
+SENSOR_TYPE_HELP:=^ "SENSOR_TYPE=NON_BATT"
+endif
+#
+# If CHIP is defined, indicate so
+ifneq ($(CHIP),)
+CHIP_APPENDIX:=_CHIP
+else
+CHIP_HELP:=^ "CHIP=ZW050x"
+endif
+#
+# If WATCHDOG is defined, indicate so
+ifneq ($(WATCHDOG),)
+WATCHDOG_APPENDIX:=_WATCHDOG
+else
+WATCHDOG_HELP:=^ "WATCHDOG=WATCHDOG_DISABLED"
+endif
+#
+# If SECURITY is defined, indicate so
+ifneq ($(SECURITY),)
+SECURITY_APPENDIX:=_SECURITY
+else
+SECURITY_HELP:=^ "SECURITY=SECURE"
+endif
+#
+TARGET_IN:=TARGET_OUT$(BOOT_APPENDIX)$(EP_SUPPORT_APPENDIX)$(LIBRARY_APPENDIX)$(FREQUENCY_APPENDIX)$(CODE_MEMORY_MODE_APPENDIX)$(SENSOR_TYPE_APPENDIX)$(CHIP_APPENDIX)$(WATCHDOG_APPENDIX)$(SECURITY_APPENDIX)
+TARGET_OUT:=TARGET_OUT_BOOT_EP_SUPPORT_LIBRARY_FREQUENCY_CODE_MEMORY_MODE_SENSOR_TYPE_CHIP_WATCHDOG_SECURITY
+#---------------------------------------------------------------------------------------------------------------------------
+# This is the heart of the recursion engine.
+# For every parameter that is not defined, a list of values will be walked through.
+# The recursion digs through this nested ifs untill all parameters are defined, working from the innermost to the outermost.
+#
+# If BOOT is not specified like MK "BOOT=BOOTLOADER_ENABLED" ...., then make for all BOOT in LIST_OF_BOOT.
+ifeq ($(BOOT),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_BOOT)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "BOOT=%%i"
+else
+# If EP_SUPPORT is not specified like MK "EP_SUPPORT=NO" ...., then make for all EP_SUPPORT in LIST_OF_EP_SUPPORT.
+ifeq ($(EP_SUPPORT),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_EP_SUPPORT)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "EP_SUPPORT=%%i"
+else
+# If LIBRARY is not specified like MK "LIBRARY=controller_static" ...., then make for all LIBRARY in LIST_OF_LIBRARY.
+ifeq ($(LIBRARY),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_LIBRARY)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "LIBRARY=%%i"
+else
+# If FREQUENCY is not specified like MK "FREQUENCY=EU" ...., then make for all FREQUENCY in LIST_OF_FREQUENCY.
+ifeq ($(FREQUENCY),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_FREQUENCY)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "FREQUENCY=%%i"
+else
+# If CODE_MEMORY_MODE is not specified like MK "CODE_MEMORY_MODE=banking" ...., then make for all CODE_MEMORY_MODE in LIST_OF_CODE_MEMORY_MODE.
+ifeq ($(CODE_MEMORY_MODE),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_CODE_MEMORY_MODE)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "CODE_MEMORY_MODE=%%i"
+else
+# If SENSOR_TYPE is not specified like MK "SENSOR_TYPE=NON_BATT" ...., then make for all SENSOR_TYPE in LIST_OF_SENSOR_TYPE.
+ifeq ($(SENSOR_TYPE),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_SENSOR_TYPE)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "SENSOR_TYPE=%%i"
+else
+# If CHIP is not specified like MK "CHIP=ZW050x" ...., then make for all CHIP in LIST_OF_CHIP.
+ifeq ($(CHIP),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_CHIP)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "CHIP=%%i"
+else
+# If WATCHDOG is not specified like MK "WATCHDOG=WATCHDOG_DISABLED" ...., then make for all WATCHDOG in LIST_OF_WATCHDOG.
+ifeq ($(WATCHDOG),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_WATCHDOG)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "WATCHDOG=%%i"
+else
+# If SECURITY is not specified like MK "SECURITY=SECURE" ...., then make for all SECURITY in LIST_OF_SECURITY.
+ifeq ($(SECURITY),)
+$(TARGET_IN):
+	@for /F "usebackq" %%i in (`echo $(LIST_OF_SECURITY)^| $(SED) "s/ /\n/g"`) do if not errorlevel 1 $(MAKE) --no-print-directory "SECURITY=%%i"
+else
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+endif
+#---------------------------------------------------------------------------------------------------------------------------
+# For every parameter, which is not defined, list help for it.
+help:
+	@echo SYNOPSIS:
+ifneq ($(oldpath),)
+	@echo  ^> mk$(BOOT_HELP)$(EP_SUPPORT_HELP)$(LIBRARY_HELP)$(FREQUENCY_HELP)$(CODE_MEMORY_MODE_HELP)$(SENSOR_TYPE_HELP)$(CHIP_HELP)$(WATCHDOG_HELP)$(SECURITY_HELP) ....
+else
+	@echo  ^> make$(subst ",,$(BOOT_HELP)$(EP_SUPPORT_HELP)$(LIBRARY_HELP)$(FREQUENCY_HELP)$(CODE_MEMORY_MODE_HELP)$(SENSOR_TYPE_HELP)$(CHIP_HELP)$(WATCHDOG_HELP)$(SECURITY_HELP)) ....
+endif
+	@echo -
+ifneq ($(BOOT_HELP),)
+	@echo List of available BOOT:
+	@echo         $(LIST_OF_BOOT)
+endif
+ifneq ($(EP_SUPPORT_HELP),)
+	@echo List of available EP_SUPPORT:
+	@echo         $(LIST_OF_EP_SUPPORT)
+endif
+ifneq ($(LIBRARY_HELP),)
+	@echo List of available LIBRARY:
+	@echo         $(LIST_OF_LIBRARY)
+endif
+ifneq ($(FREQUENCY_HELP),)
+	@echo List of available FREQUENCY:
+	@echo         $(LIST_OF_FREQUENCY)
+endif
+ifneq ($(CODE_MEMORY_MODE_HELP),)
+	@echo List of available CODE_MEMORY_MODE:
+	@echo         $(LIST_OF_CODE_MEMORY_MODE)
+endif
+ifneq ($(SENSOR_TYPE_HELP),)
+	@echo List of available SENSOR_TYPE:
+	@echo         $(LIST_OF_SENSOR_TYPE)
+endif
+ifneq ($(CHIP_HELP),)
+	@echo List of available CHIP:
+	@echo         $(LIST_OF_CHIP)
+endif
+ifneq ($(WATCHDOG_HELP),)
+	@echo List of available WATCHDOG:
+	@echo         $(LIST_OF_WATCHDOG)
+endif
+ifneq ($(SECURITY_HELP),)
+	@echo List of available SECURITY:
+	@echo         $(LIST_OF_SECURITY)
+endif
+##############################################################################################################
+# Uniform target for all combinations of parameters
+#
+$(TARGET_OUT):MAKELINE=$(APP) $(BOOT_OPTION) $(EP_SUPPORT_OPTION) $(LIBRARY_OPTION) $(FREQUENCY_OPTION) $(CODE_MEMORY_MODE_OPTION) $(SENSOR_TYPE_OPTION) $(CHIP_OPTION) $(WATCHDOG_OPTION) $(SECURITY_OPTION)
+$(TARGET_OUT):
+	$(MAKE) $(MAKEOPTS) . $(MAKELINE) prerequisites
+	$(MAKE) $(MAKEOPTS) . $(MAKELINE) depend
+	$(MAKE) $(MAKEOPTS) . $(MAKELINE) all
+##############################################################################################################
