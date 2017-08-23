@@ -1,0 +1,2 @@
+# SDK_v6_61_00Protocal_switchOnOffMultichanel
+ZWAVE5系列大模块双开程序
